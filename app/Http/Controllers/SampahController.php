@@ -72,6 +72,7 @@ class SampahController extends Controller
             $sampah = Sampah::find($id); 
             $sampah->update([
                 'namaSampah' => $request->namaSampah,
+                'gambarSampah' => $request->file('gambarSampah')->store('sampah'),
             ]);
 
             return redirect()->route('sampahs.index')->with(['success' => 'Data Berhasil Diupdate!']);
