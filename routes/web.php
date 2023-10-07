@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('beranda');
 });
 
+Route::get('/jeniSampah', function () {
+    return view('user.sampah');
+})->name('jenisSampah');    
+
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/dashboards', function () {
         return view('admin.dashboard');
